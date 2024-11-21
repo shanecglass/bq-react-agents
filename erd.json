@@ -1,0 +1,38 @@
+[
+	{
+		"table1": "scg-l200-genai2.chat_app_lineage.messages",
+		"table2": "scg-l200-genai2.chat_app_lineage.replies",
+		"join_type": "JOIN",
+		"on": "m.session_id = r.session_id AND m.message_count = r.reply_count"
+	},
+	{
+		"table1": "scg-l200-genai2.geo_us_boundaries.states",
+		"table2": "scg-l200-genai2.travel_chat.users",
+		"join_type": "JOIN",
+		"on": "fips.state = REGEXP_EXTRACT(users.user_location, r', ([A-Z]{2})$')"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.geo_us_places.us_national_places",
+		"join_type": "LEFT JOIN",
+		"on": "places.state_fips_code = fips_codes.state_fips_code\n    AND places.place_name = REGEXP_EXTRACT(fips_codes.user_location, r'^(.*), [A-Z]{2}$')"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.user_airports",
+		"table2": "hold",
+		"join_type": "JOIN",
+		"on": "x.name = hold.airport"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "JOIN",
+		"on": "airports.user_name = REPLACE(users.user_name, \" \", \"_\")"
+	},
+	{
+		"table1": "scg-l200-genai2.hotels.florence",
+		"table2": "hotels.florence_hold",
+		"join_type": "JOIN",
+		"on": "USING (id)"
+	}
+]

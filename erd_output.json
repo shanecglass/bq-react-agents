@@ -1,0 +1,122 @@
+[
+	{
+		"table1": "scg-l200-genai2.hotels.florence",
+		"table2": "hotels.florence_hold",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.hotels.florence.id = hotels.florence_hold.id"
+	},
+	{
+		"table1": "travel_chat.users",
+		"table2": "travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "travel_chat.users.user_id = travel_chat.user_airports.user_id AND travel_chat.users.user_name = travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "travel_chat.users",
+		"table2": "travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "travel_chat.users.user_id = travel_chat.user_airports.user_id AND travel_chat.users.user_name = travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "travel_chat.users",
+		"table2": "travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "travel_chat.users.user_id = travel_chat.user_airports.user_id AND travel_chat.users.user_name = travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.users.user_id = scg-l200-genai2.travel_chat.user_airports.user_id AND scg-l200-genai2.travel_chat.users.user_name = scg-l200-genai2.travel_chat.user_airports.user_name"
+	},
+	{
+		"table1": "scg-l200-genai2.geo_us_boundaries.states",
+		"table2": "scg-l200-genai2.travel_chat.users",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.geo_us_boundaries.states.state = REGEXP_EXTRACT(scg-l200-genai2.travel_chat.users.user_location, r.*, ([A-Z]{2})$)"
+	},
+	{
+		"table1": "fips_codes",
+		"table2": "scg-l200-genai2.geo_us_places.us_national_places",
+		"join_type": "LEFT JOIN",
+		"on": "scg-l200-genai2.geo_us_places.us_national_places.state_fips_code = fips_codes.state_fips_code AND scg-l200-genai2.geo_us_places.us_national_places.place_name = REGEXP_EXTRACT(fips_codes.user_location, r^(.*), [A-Z]{2}$)"
+	},
+	{
+		"table1": "hold",
+		"table2": "scg-l200-genai2.faa.us_airports",
+		"join_type": "INNER JOIN",
+		"on": null
+	},
+	{
+		"table1": "scg-l200-genai2.chat_app_lineage.messages",
+		"table2": "scg-l200-genai2.chat_app_lineage.replies",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.chat_app_lineage.messages.session_id = scg-l200-genai2.chat_app_lineage.replies.session_id AND scg-l200-genai2.chat_app_lineage.messages.message_count = scg-l200-genai2.chat_app_lineage.replies.reply_count"
+	},
+	{
+		"table1": "chat_app_lineage.messages",
+		"table2": "chat_app_lineage.replies",
+		"join_type": "INNER JOIN",
+		"on": "chat_app_lineage.messages.session_id = chat_app_lineage.replies.session_id AND chat_app_lineage.messages.message_count = chat_app_lineage.replies.reply_count"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.user_airports",
+		"table2": "hold",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.user_airports.name = hold.airport"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.user_airports",
+		"table2": "hold",
+		"join_type": "INNER JOIN",
+		"on": "x.name = hold.airport"
+	},
+	{
+		"table1": "scg-l200-genai2.geo_us_boundaries.states",
+		"table2": "scg-l200-genai2.travel_chat.users",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.geo_us_boundaries.states.state = REGEXP_EXTRACT(scg-l200-genai2.travel_chat.users.city, r.*, ([A-Z]{2})$)"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.users",
+		"table2": "scg-l200-genai2.travel_chat.user_airports",
+		"join_type": "INNER JOIN",
+		"on": "scg-l200-genai2.travel_chat.user_airports.user_name = REPLACE(scg-l200-genai2.travel_chat.users.user_name, \" \", \"_\")"
+	},
+	{
+		"table1": "scg-l200-genai2.travel_chat.user_airports",
+		"table2": "hold",
+		"join_type": "INNER JOIN",
+		"on": "x.name = hold.airport"
+	}
+]
